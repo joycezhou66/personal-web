@@ -1,375 +1,452 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<title>Joyce Zhou</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Joyce Zhou</title>
+<meta name="description" content="Joyce Zhou — computer science and business at USC. Engineering, research, and the things I build in between.">
+<meta property="og:title" content="Joyce Zhou">
+<meta property="og:description" content="Computer science and business at USC. Engineering, research, and the things I build in between.">
+<meta property="og:type" content="profile">
+<meta name="theme-color" content="#fcfcfb">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#111417;
+    --ink-soft:#565f63;
+    --paper:#fcfcfb;
+    --wash:#eff1f0;
+    --accent:#145c63;
+    --accent-soft:#8aacaf;
+    --rule:#dcdedc;
+    --display:"Spectral",Georgia,serif;
+    --body:"Inter",system-ui,-apple-system,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,monospace;
+  }
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+  *,*::before,*::after{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
-				<!-- Header -->
-					<header id="header">
-						<div class="logo">
-							<span class="icon fa-gem"></span>
-						</div>
-						<div class="content">
-							<div class="inner">
-								<h1>Joyce Zhou</h1>
-								<p>"All our dreams can come true, if we have the courage to pursue them." - Walt Disney</p>
-							</div>
-						</div>
-						<nav>
-							<ul>
-								<li><a href="#intro">About Me</a></li>
-								<li><a href="#work">Work</a></li>
-								<li><a href="#projects">Projects</a></li>
-								<li><a href="#contact">Contact</a></li>
-								<!--<li><a href="#elements">Elements</a></li>-->
-							</ul>
-						</nav>
-					</header>
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:16.5px;
+    line-height:1.68;
+    -webkit-font-smoothing:antialiased;
+  }
 
-				<!-- Main -->
-					<div id="main">
+  img{display:block;max-width:100%}
+  a{color:inherit}
 
-						<!-- Intro -->
-							<article id="intro">
-								<h2 class="major">About Joyce</h2>
-								<span class="image main"><img src="images/pic01.jpg" alt="" /></span>
-								<p>Joyce is currently a student at University of Southern California majoring in Computer Science and Business Administration. Throughout her years of study and experiences, she has gained an understanding in a wide range of disciplines including data analytics, entrepreneurship, software engineering, and product development. 
-									Joyce has a passion to ideate and build products that are high-quality, cohesive, scalable and designed to make a positive difference in the world. She is a problem solver and team player with a hard working attitude. Her experiences of participating in datathon and hackathon challenges have given her unique insights into the product lifecycle and have allowed her to think through the entire customer journey while challenging her own assumptions.
-									 By the way, check out her <a href="https://github.com/joycezhou66"><strong>GitHub</strong></a>!</p>
-							</article>
+  a:focus-visible,button:focus-visible{
+    outline:2px solid var(--accent);
+    outline-offset:3px;
+    border-radius:2px;
+  }
 
-						<!-- Work -->
-							<article id="work"> 
-								<h2 class="major">Here's what I've done so far</h2>
-								<span class="image main"><img src="images/pic02.jpg" alt="" /></span>
-								<figure class="image main"><img src="images/mask.png" > <figcaption> A YAFU event of how to create masks out of recycled fabric during the Covid pandemic</figcaption></figure>
-								
-								<p>As a current remote intern for a research project sponsored by the National Science Foundation and the INK lab at USC, I work on integrating SPARQL querying capabilities into web interfaces, ensuring seamless interaction with the knowledge graph for users. Additionally, I optimized the user interface for constructing SPARQL queries, focusing on improving usability and accessibility. Using Blockly and JavaScript, I developed SPARQL queries and identified testing data sources with Neo4j databases and external APIs.</p>
-								<p>As a Data Analytics Intern at the National Institute of Health, I conducted data mining on large-scale cancer genomic data using R, leading to a 30% reduction in processing time. Additionally, I co-authored publications on a user-friendly genome browser, achieving a remarkable 250% enhancement in data analysis efficiency.</p>
-								<p>As an Educator at the Kid Museum, I had extensive experience leading STEM workshops and organizing hands-on activities, such as building circuits, robots, and programming, for elementary and middle school children. Additionally, I played a key role in planning and assisting in summer camp activities, and I hosted offsite events, showcasing educational STEM workshops to the public.</p>
-								<p>As the Founder of the <a href= "https://taplink.cc/yafu.official"> Youth And Families United (YAFU)</a>, I developed a web application that served as a platform for over 200 families, facilitating their access to resources and enabling requests to meet basic needs. I organized and executed 5 successful food drives, raising over $2,000 and providing essential necessities to over 50 families. I also worked with 30 students to establish a chapter program across 5 high schools, offering free after-school tutoring services, community outreach programs, and financial resources to support families and students residing in low-income neighborhoods. <a href = "https://www.instagram.com/yafu.official/" > Check out how we spread awareness!</a></p>
-							
-							</article>
+  .skip{
+    position:absolute;left:-9999px;top:0;
+    background:var(--ink);color:var(--paper);
+    padding:.6rem 1rem;font-family:var(--mono);font-size:.8rem;z-index:99;
+  }
+  .skip:focus{left:0}
 
-						<!-- Projects -->
-							<article id="projects">
-								<h2 class="major">My Projects</h2>
-								<span class="image main"><img src="images/sudoku.jpg" alt="" /></span>
-								<p>I created a graphical user interface (GUI) utilizing Pygame. One of the notable achievements during this project was the implementation of a feature incorporating the backtracking algorithm. This algorithm serves as the backbone for solving any solvable Sudoku game within the developed GUI, showcasing my problem-solving skills and commitment to delivering efficient and effective solutions.</p>
-								<span class="image main"><img src="images/handwrittenmodel.jpg" alt="" /></span>
-								<p>I leveraged TensorFlow to construct a powerful neural network architecture, integrating multiple layers for efficient image recognition. Utilizing Matplotlib, I visualized and analyzed the neural network's performance, gaining valuable insights into the training process. The outcome of this effort was a remarkable 90% accuracy in recognizing handwritten digits, showcasing the high effectiveness of the developed neural network.</p>
-								<h3>MERN Full Stack App</h3>
-								<p>I created a MERN full stack web application and developed a robust Application Programming Interface (API) using Node.js, which facilitated user creation, authentication, and logout functionalities. Additionally, I implemented effective state management for user authentication in React.js using Redux, ensuring a seamless and secure user experience. I used Postman to simulate API responses and requests which significantly contributed to streamlined testing and validation processes. </p>
-								<h4>Data Models</h4>
-								<p><ul><li>User Model stores user information</li><li>Authentication Token Model manages user sessions</li><li>API Request Model logs requests made to the API</li></ul></p>
-								<h4>Sitemap</h4>
-								<span class="image main"><img src="images/sitemap.jpg" alt='' /></span>
-								<h4>User Stories</h4>
-								<p><ul><li>As a new user, I want to be able to register for an account by providing my username, email, and password so that I can access personalized features.</li><li>As a registered user, I want to log in with my credentials to access the application and utilize its functionalities.</li><li>As a logged-in user, I want to be able to log out securely to protect my account and data.
-								</li><li>As a user, I want to view my profile information to see the details associated with my account.</li><li>As a user, I want to update my profile information, such as changing my username or email address, to keep my account information accurate.
-								</li></ul></p>
-								<h3>TreeHacks Project</h3>
-								<figure class="image main"><img src="images/postman.png" > <figcaption>Best Use of an API with Postman</figcaption></figure>
-								<p>Our project, NoWaste, is contingent on a variety of APIs to accurately analyze food and determine its safety. We focused on a cheap and sustainable product that can be deployed en masse, but since hosting local models is not a scalable solution at this time, we relied heavily on API usage. In our submission, we utilize the OpenAI GPT4-Vision API to analyze images of users' food, and we call Together.AI's Llama 70B endpoint to process the provided textual context. Due to the nature of our project, Postman conveniently provides a streamlined environment to test various inputs and analyze the responses. Furthermore, because we deal with food safety, LLMs often produce wildly different outputs, especially if the prompting is tweaked. Therefore, we had to make many requests to OpenAI, even to the point of rate-limiting, to ensure that we receive consistent responses in a format that is useful to our customers. Postman made it easy to tweak various parameters such as maximum tokens (length of the output), temperature (how much the LLM's response may vary), and more in order to tune our project.</p>
-								<figure class="image main"><img src="images/swift.png" > <figcaption>Mockup of the mobile app version I created using Swift</figcaption></figure>
-								<p>Check out my <a href= "https://github.com/joycezhou66" > Github</a>!</p>
-							</article>
+  .shell{max-width:70rem;margin:0 auto;padding:0 1.5rem}
 
-						<!-- Contact -->
-							<article id="contact">
-								<h2 class="major">Contact</h2>
-								<form method="post" action="#">
-									<div class="fields">
-										<div class="field half">
-											<label for="name">Name</label>
-											<input type="text" name="name" id="name" />
-										</div>
-										<div class="field half">
-											<label for="email">Email</label>
-											<input type="text" name="email" id="email" />
-										</div>
-										<div class="field">
-											<label for="message">Message</label>
-											<textarea name="message" id="message" rows="4"></textarea>
-										</div>
-									</div>
-									<ul class="actions">
-										<li><input type="submit" value="Send Message" class="primary" /></li>
-										<li><input type="reset" value="Reset" /></li>
-									</ul>
-								</form>
-								<ul class="icons">
-									<li><a href="https://www.linkedin.com/in/joyce-zhou-9266621a9/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-									<li><a href="https://github.com/joycezhou66" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-								</ul>
-							</article>
+  /* masthead */
 
-						<!-- Elements -->
-							<article id="elements">
-								<h2 class="major">Elements</h2>
+  .masthead{
+    position:sticky;top:0;z-index:20;
+    background:rgba(252,252,251,.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid transparent;
+    transition:border-color .25s ease;
+  }
+  .masthead.stuck{border-bottom-color:var(--rule)}
 
-								<section>
-									<h3 class="major">Text</h3>
-									<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
-									This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
-									This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
-									<hr />
-									<h2>Heading Level 2</h2>
-									<h3>Heading Level 3</h3>
-									<h4>Heading Level 4</h4>
-									<h5>Heading Level 5</h5>
-									<h6>Heading Level 6</h6>
-									<hr />
-									<h4>Blockquote</h4>
-									<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
-									<h4>Preformatted</h4>
-									<pre><code>i = 0;
+  .masthead .shell{
+    display:flex;flex-wrap:wrap;gap:.75rem 2rem;
+    align-items:center;justify-content:space-between;
+    padding-top:1.1rem;padding-bottom:1.1rem;
+  }
 
-while (!deck.isInOrder()) {
-    print 'Iteration ' + i;
-    deck.shuffle();
-    i++;
-}
+  .wordmark{
+    font-family:var(--mono);font-size:.76rem;
+    letter-spacing:.16em;text-transform:uppercase;
+    text-decoration:none;color:var(--ink);
+  }
 
-print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
-								</section>
+  .masthead nav{display:flex;flex-wrap:wrap;gap:1.4rem;font-family:var(--mono);font-size:.74rem;letter-spacing:.08em}
 
-								<section>
-									<h3 class="major">Lists</h3>
+  .masthead nav a{
+    color:var(--ink-soft);text-decoration:none;
+    padding-bottom:2px;border-bottom:1px solid transparent;
+    transition:color .18s ease,border-color .18s ease;
+  }
+  .masthead nav a:hover{color:var(--accent);border-bottom-color:var(--accent-soft)}
 
-									<h4>Unordered</h4>
-									<ul>
-										<li>Dolor pulvinar etiam.</li>
-										<li>Sagittis adipiscing.</li>
-										<li>Felis enim feugiat.</li>
-									</ul>
+  /* hero */
 
-									<h4>Alternate</h4>
-									<ul class="alt">
-										<li>Dolor pulvinar etiam.</li>
-										<li>Sagittis adipiscing.</li>
-										<li>Felis enim feugiat.</li>
-									</ul>
+  .hero{padding:5.5rem 0 4rem}
 
-									<h4>Ordered</h4>
-									<ol>
-										<li>Dolor pulvinar etiam.</li>
-										<li>Etiam vel felis viverra.</li>
-										<li>Felis enim feugiat.</li>
-										<li>Dolor pulvinar etiam.</li>
-										<li>Etiam vel felis lorem.</li>
-										<li>Felis enim et feugiat.</li>
-									</ol>
-									<h4>Icons</h4>
-									<ul class="icons">
-										<li><a href="#" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-										<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-									</ul>
+  .hero .shell{
+    display:grid;
+    grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);
+    gap:3.5rem;align-items:end;
+  }
 
-									<h4>Actions</h4>
-									<ul class="actions">
-										<li><a href="#" class="button primary">Default</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-									<ul class="actions stacked">
-										<li><a href="#" class="button primary">Default</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-								</section>
+  .hero h1{
+    font-family:var(--display);
+    font-weight:500;
+    font-size:clamp(2.4rem,6vw,4.15rem);
+    line-height:1.08;letter-spacing:-.02em;
+    margin:0 0 1.6rem;
+  }
 
-								<section>
-									<h3 class="major">Table</h3>
-									<h4>Default</h4>
-									<div class="table-wrapper">
-										<table>
-											<thead>
-												<tr>
-													<th>Name</th>
-													<th>Description</th>
-													<th>Price</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>Item One</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Two</td>
-													<td>Vis ac commodo adipiscing arcu aliquet.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Three</td>
-													<td> Morbi faucibus arcu accumsan lorem.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Four</td>
-													<td>Vitae integer tempus condimentum.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Five</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-											</tbody>
-											<tfoot>
-												<tr>
-													<td colspan="2"></td>
-													<td>100.00</td>
-												</tr>
-											</tfoot>
-										</table>
-									</div>
+  .hero .lede{max-width:44ch;margin:0 0 1.5rem;font-size:1.06rem}
+  .hero .lede + .lede{color:var(--ink-soft);font-size:1rem}
 
-									<h4>Alternate</h4>
-									<div class="table-wrapper">
-										<table class="alt">
-											<thead>
-												<tr>
-													<th>Name</th>
-													<th>Description</th>
-													<th>Price</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>Item One</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Two</td>
-													<td>Vis ac commodo adipiscing arcu aliquet.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Three</td>
-													<td> Morbi faucibus arcu accumsan lorem.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Four</td>
-													<td>Vitae integer tempus condimentum.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Five</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-											</tbody>
-											<tfoot>
-												<tr>
-													<td colspan="2"></td>
-													<td>100.00</td>
-												</tr>
-											</tfoot>
-										</table>
-									</div>
-								</section>
+  .hero-links{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;padding:0;margin:2rem 0 0}
 
-								<section>
-									<h3 class="major">Buttons</h3>
-									<ul class="actions">
-										<li><a href="#" class="button primary">Primary</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-									<ul class="actions">
-										<li><a href="#" class="button">Default</a></li>
-										<li><a href="#" class="button small">Small</a></li>
-									</ul>
-									<ul class="actions">
-										<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
-										<li><a href="#" class="button icon solid fa-download">Icon</a></li>
-									</ul>
-									<ul class="actions">
-										<li><span class="button primary disabled">Disabled</span></li>
-										<li><span class="button disabled">Disabled</span></li>
-									</ul>
-								</section>
+  .hero-links a{
+    display:inline-block;font-family:var(--mono);font-size:.77rem;letter-spacing:.04em;
+    text-decoration:none;color:var(--accent);
+    border:1px solid var(--rule);background:#fff;padding:.45rem .9rem;
+    transition:border-color .18s ease,transform .18s ease;
+  }
+  .hero-links a:hover{border-color:var(--accent);transform:translateY(-1px)}
 
-								<section>
-									<h3 class="major">Form</h3>
-									<form method="post" action="#">
-										<div class="fields">
-											<div class="field half">
-												<label for="demo-name">Name</label>
-												<input type="text" name="demo-name" id="demo-name" value="" placeholder="Jane Doe" />
-											</div>
-											<div class="field half">
-												<label for="demo-email">Email</label>
-												<input type="email" name="demo-email" id="demo-email" value="" placeholder="jane@untitled.tld" />
-											</div>
-											<div class="field">
-												<label for="demo-category">Category</label>
-												<select name="demo-category" id="demo-category">
-													<option value="">-</option>
-													<option value="1">Manufacturing</option>
-													<option value="1">Shipping</option>
-													<option value="1">Administration</option>
-													<option value="1">Human Resources</option>
-												</select>
-											</div>
-											<div class="field half">
-												<input type="radio" id="demo-priority-low" name="demo-priority" checked>
-												<label for="demo-priority-low">Low</label>
-											</div>
-											<div class="field half">
-												<input type="radio" id="demo-priority-high" name="demo-priority">
-												<label for="demo-priority-high">High</label>
-											</div>
-											<div class="field half">
-												<input type="checkbox" id="demo-copy" name="demo-copy">
-												<label for="demo-copy">Email me a copy</label>
-											</div>
-											<div class="field half">
-												<input type="checkbox" id="demo-human" name="demo-human" checked>
-												<label for="demo-human">Not a robot</label>
-											</div>
-											<div class="field">
-												<label for="demo-message">Message</label>
-												<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
-											</div>
-										</div>
-										<ul class="actions">
-											<li><input type="submit" value="Send Message" class="primary" /></li>
-											<li><input type="reset" value="Reset" /></li>
-										</ul>
-									</form>
-								</section>
+  /* plate system */
 
-							</article>
+  figure.plate{margin:0}
 
-					</div>
+  figure.plate .frame{
+    position:relative;
+    background:var(--wash);
+    border:1px solid var(--rule);
+    overflow:hidden;
+  }
 
-				<!-- Footer -->
-					<footer id="footer">
-						<p class="copyright">&copy; Joyce Zhou</p>
-					</footer>
+  figure.plate .frame img{
+    width:100%;height:100%;
+    object-fit:cover;object-position:center;
+    transition:transform .5s cubic-bezier(.2,.7,.3,1);
+  }
 
-			</div>
+  figure.plate:hover .frame img{transform:scale(1.03)}
 
-		<!-- BG -->
-			<div id="bg"></div>
+  .ratio-portrait .frame{aspect-ratio:4/5}
+  .ratio-portrait .frame img{object-position:center 22%}
+  .ratio-wide .frame{aspect-ratio:16/9}
+  .ratio-screen .frame{aspect-ratio:3/2}
+  .ratio-screen .frame img{object-fit:contain;background:#fff;padding:.5rem}
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+  figure.plate figcaption{
+    font-family:var(--mono);font-size:.7rem;line-height:1.6;
+    letter-spacing:.03em;color:var(--ink-soft);
+    margin-top:.65rem;padding-left:.9rem;
+    border-left:2px solid var(--accent-soft);
+  }
 
-	</body>
+  figure.plate figcaption b{
+    display:block;font-weight:500;color:var(--accent);
+    letter-spacing:.12em;text-transform:uppercase;font-size:.64rem;
+    margin-bottom:.2rem;
+  }
+
+  .plate-stack{display:grid;gap:1.6rem}
+
+  /* bands */
+
+  .band{border-top:1px solid var(--rule);padding:4rem 0}
+  .band.tint{background:var(--wash)}
+
+  .band-head{
+    font-family:var(--mono);font-size:.71rem;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent);
+    margin:0 0 2.5rem;
+    display:flex;align-items:center;gap:1rem;
+  }
+  .band-head::after{content:"";flex:1;height:1px;background:var(--rule)}
+
+  /* entries */
+
+  .entry{
+    display:grid;grid-template-columns:minmax(0,1fr) minmax(0,20rem);
+    gap:2.5rem 3rem;align-items:start;
+    padding:2.25rem 0;border-top:1px solid var(--rule);
+  }
+  .entry:first-of-type{border-top:none;padding-top:0}
+  .entry.noplate{grid-template-columns:minmax(0,1fr)}
+
+  .eyebrow{
+    font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ink-soft);margin:0 0 .55rem;
+  }
+
+  .entry h3{
+    font-family:var(--display);font-size:1.55rem;font-weight:500;
+    line-height:1.28;margin:0 0 .8rem;letter-spacing:-.01em;
+  }
+
+  .entry h3 a{
+    text-decoration:none;
+    background-image:linear-gradient(var(--accent-soft),var(--accent-soft));
+    background-size:100% 1px;background-repeat:no-repeat;background-position:0 100%;
+    transition:color .18s ease,background-size .25s ease;
+  }
+  .entry h3 a:hover{color:var(--accent);background-size:100% 2px}
+
+  .entry p{margin:0 0 .95rem;max-width:60ch}
+  .entry p:last-child{margin-bottom:0}
+
+  .tags{display:flex;flex-wrap:wrap;gap:.4rem;list-style:none;padding:0;margin:1.15rem 0 0}
+
+  .tags li{
+    font-family:var(--mono);font-size:.7rem;letter-spacing:.03em;
+    color:var(--ink-soft);border:1px solid var(--rule);
+    background:var(--paper);padding:.3rem .62rem;
+  }
+
+  /* roles */
+
+  .roles{list-style:none;padding:0;margin:0}
+
+  .roles li{
+    display:grid;grid-template-columns:13rem minmax(0,1fr);
+    gap:.4rem 2.5rem;align-items:baseline;
+    padding:1.15rem 0;border-top:1px solid var(--rule);
+  }
+  .roles li:first-child{border-top:none;padding-top:0}
+
+  .roles .org{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;color:var(--ink-soft)}
+  .roles .what{max-width:56ch}
+  .roles .what strong{display:block;font-weight:600;margin-bottom:.15rem}
+  .roles .what span{color:var(--ink-soft);font-size:.95rem;display:block}
+  .roles .what span a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-soft)}
+  .roles .what span a:hover{color:var(--ink)}
+
+  /* off hours */
+
+  .offhours-note{
+    font-size:1rem;line-height:1.68;
+    max-width:56ch;margin:0;color:var(--ink);
+  }
+
+  /* footer */
+
+  .colophon{border-top:1px solid var(--rule);padding:3rem 0 4rem}
+
+  .colophon .shell{
+    display:flex;flex-wrap:wrap;gap:1.25rem 2rem;
+    justify-content:space-between;align-items:baseline;
+    font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;color:var(--ink-soft);
+  }
+
+  .colophon ul{display:flex;flex-wrap:wrap;gap:1.35rem;list-style:none;padding:0;margin:0}
+  .colophon a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-soft)}
+  .colophon a:hover{color:var(--ink)}
+
+  /* motion */
+
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .65s ease,transform .65s ease}
+  .reveal.shown{opacity:1;transform:none}
+
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    .reveal{opacity:1;transform:none}
+    figure.plate:hover .frame img{transform:none}
+  }
+
+  /* responsive */
+
+  @media (max-width:860px){
+    .hero{padding:3.5rem 0 2.5rem}
+    .hero .shell{grid-template-columns:1fr;gap:2.5rem;align-items:start}
+    .entry{grid-template-columns:1fr;gap:1.75rem}
+    .roles li{grid-template-columns:1fr;gap:.3rem}
+    .band{padding:3rem 0}
+  }
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead" id="masthead">
+  <div class="shell">
+    <a class="wordmark" href="#top">Joyce Zhou</a>
+    <nav aria-label="Sections">
+      <a href="#building">Building</a>
+      <a href="#experience">Experience</a>
+      <a href="#offhours">Off hours</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero" id="top">
+    <div class="shell">
+      <div>
+        <h1>Joyce Zhou</h1>
+        <p class="lede">I study computer science and business at USC, and I spend most of my time at the seam between the two — building things, then figuring out how to get them in front of the people who need them.</p>
+        <p class="lede">Lately that's meant AI agent tooling, research systems, and product work. Before that, a nonprofit I started in high school.</p>
+        <ul class="hero-links">
+          <li><a href="#contact">Get in touch</a></li>
+          <li><a href="https://github.com/joycezhou66">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/joycezhou22/">LinkedIn</a></li>
+        </ul>
+      </div>
+      <figure class="plate ratio-portrait reveal">
+        <div class="frame"><img src="https://joycezhou.me/images/joyce.jpg" alt="Joyce Zhou" onerror="this.closest('figure').remove()"></div>
+      </figure>
+    </div>
+  </section>
+
+  <section class="band" id="building">
+    <div class="shell">
+      <h2 class="band-head">Selected work</h2>
+
+      <article class="entry reveal">
+        <div>
+          <p class="eyebrow">Nonprofit &middot; Founder</p>
+          <h3><a href="https://taplink.cc/yafu.official">Youth and Families United</a></h3>
+          <p>My family moved a few miles down Rockville Pike and the school district around me changed completely — different resources, different support, different expectations for what students could do. YAFU started because none of that should turn on an address.</p>
+          <p>I built the platform from scratch: a web application where families could find resources and request help meeting basic needs, plus a second tool that streamlined volunteer recruitment for local shelters. Writing the code was never the hard part. Getting it in front of people was, which is how I ended up teaching myself SEO and social strategy.</p>
+          <p>From there it became tutoring — I interviewed tutors to run free virtual sessions — plus food drives, school pantries, and chapters run by students at nearby high schools.</p>
+          <ul class="tags">
+            <li>200+ families</li>
+            <li>50+ tutor interviews</li>
+            <li>5 food drives</li>
+            <li>$2,000+ raised</li>
+          </ul>
+        </div>
+        <figure class="plate ratio-wide">
+          <div class="frame"><img src="https://joycezhou.me/images/mask.png" alt="A YAFU workshop on making masks from recycled fabric" loading="lazy" onerror="this.closest('figure').remove()"></div>
+          <figcaption><b>YAFU</b>A workshop on making masks out of recycled fabric, run during the pandemic.</figcaption>
+        </figure>
+      </article>
+
+      <article class="entry reveal">
+        <div>
+          <p class="eyebrow">TreeHacks 2024, Stanford &middot; Product lead</p>
+          <h3><a href="https://devpost.com/software/nowaste-ai">NoWaste.ai</a></h3>
+          <p>Americans throw out around 200lbs of food a person each year, mostly on a guess. NoWaste lets you photograph something, describe what happened to it — "pizza left on a warm counter six hours, then refrigerated for eight" — and get a real read on whether it's still safe, from GPT-4 Vision and Llama 70B.</p>
+          <p>The decision I'm proudest of was refusing to ship only an app, because an app assumes a smartphone. So we built two things: a lightweight iOS app, and a Raspberry Pi unit with a camera and odor sensors in a housing we made on site, at roughly $100 to assemble, for communities where phones aren't a given.</p>
+          <p>On a team of four I owned product strategy, split the work by everyone's strengths, and pitched to the judges. It won Best Use of an API.</p>
+        </div>
+        <div class="plate-stack">
+          <figure class="plate ratio-screen">
+            <div class="frame"><img src="https://joycezhou.me/images/swift.png" alt="Swift mockup of the NoWaste mobile app" loading="lazy" onerror="this.closest('figure').remove()"></div>
+            <figcaption><b>Mobile</b>The iOS version, built in Swift.</figcaption>
+          </figure>
+          <figure class="plate ratio-screen">
+            <div class="frame"><img src="https://joycezhou.me/images/postman.png" alt="Best Use of an API award from Postman at TreeHacks" loading="lazy" onerror="this.closest('figure').remove()"></div>
+            <figcaption><b>Recognition</b>Best Use of an API — Postman, TreeHacks.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="entry noplate reveal">
+        <div>
+          <p class="eyebrow">Solo &middot; Python</p>
+          <h3><a href="https://github.com/joycezhou66/trading-backtest-platform">Trading backtest platform</a></h3>
+          <p>A backtesting engine for evaluating systematic strategies against market data — moving average, mean reversion, momentum — with the performance analytics you need to tell a real edge from an overfit one. More of what I'm working on lives on <a href="https://github.com/joycezhou66">GitHub</a>.</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="band tint" id="experience">
+    <div class="shell">
+      <h2 class="band-head">Experience</h2>
+      <ul class="roles">
+        <li>
+          <span class="org">Google</span>
+          <span class="what"><strong>AI Software Engineer Intern</strong><span>Shipped a secure tool-use API widening a production browser agent's action space, and led the privacy redesign of its screenshot traces. New York.</span></span>
+        </li>
+        <li>
+          <span class="org">Fox Corporation</span>
+          <span class="what"><strong>AI Product Manager Intern</strong><span>Built an A/B testing framework across 1.2M+ monthly visitors that surfaced 46,000+ untapped trial starts.</span></span>
+        </li>
+        <li>
+          <span class="org">Amazon</span>
+          <span class="what"><strong>Quality Assurance Engineer Intern</strong><span>Designed an internal AI tool that cut manual test planning time by 80% across the team.</span></span>
+        </li>
+        <li>
+          <span class="org">Accenture</span>
+          <span class="what"><strong>AI/ML Technology Consultant Intern</strong><span>Led five people building a summarization engine over 1,000+ news articles for client investment research.</span></span>
+        </li>
+        <li>
+          <span class="org">USC Machine Learning Center</span>
+          <span class="what"><strong>Software Engineer</strong><span>Built the lab's <a href="https://usc-melady.github.io/mascle_website/">management system</a> — the site researchers use day to day.</span></span>
+        </li>
+        <li>
+          <span class="org">National Science Foundation</span>
+          <span class="what"><strong>Research / Machine Learning Intern</strong><span>Redesigned SPARQL workflows and Neo4j integrations, cutting data retrieval time by 75%.</span></span>
+        </li>
+        <li>
+          <span class="org">National Institutes of Health</span>
+          <span class="what"><strong>Data Analytics Intern</strong><span>Analyzed 10+ billion genomic data points and co-authored two peer-reviewed publications.</span></span>
+        </li>
+        <li>
+          <span class="org">KID Museum</span>
+          <span class="what"><strong>Educator</strong><span>STEM workshops for elementary and middle schoolers — circuits, robots, code.</span></span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="band" id="offhours">
+    <div class="shell">
+      <h2 class="band-head">Off hours</h2>
+      <p class="offhours-note">Outside of work, I enjoy running, playing pickleball, trying new foods, and sitting in on an occasional poker game.</p>
+    </div>
+  </section>
+
+  <footer class="colophon" id="contact">
+    <div class="shell">
+      <span>Los Angeles, CA &middot; Say hello anytime</span>
+      <ul>
+        <li><a href="mailto:jezhou@usc.edu">Email</a></li>
+        <li><a href="https://github.com/joycezhou66">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/joycezhou22/">LinkedIn</a></li>
+      </ul>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var items = document.querySelectorAll('.reveal');
+
+    if (!('IntersectionObserver' in window) || reduce) {
+      items.forEach(function (el) { el.classList.add('shown'); });
+    } else {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('shown'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      items.forEach(function (el) { io.observe(el); });
+    }
+
+    var head = document.getElementById('masthead');
+    var onScroll = function () { head.classList.toggle('stuck', window.scrollY > 8); };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+</script>
+
+</body>
 </html>
