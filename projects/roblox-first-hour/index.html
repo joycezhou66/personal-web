@@ -5,112 +5,124 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Roblox Studio, the first hour — Joyce Zhou</title>
 <meta name="description" content="A PM case study: can a first-time creator get from a blank Baseplate in Roblox Studio to a game a friend plays, in one sitting? Friction log, community evidence, competitive teardown, PRD, mockups, experiment plan.">
+<meta name="theme-color" content="#fcfcfb">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="../case.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/projects/case.css">
 </head>
 <body>
 
-<div class="wrap crumbs"><a href="/">Joyce Zhou</a><span class="sep">/</span><a href="/projects/">Projects</a><span class="sep">/</span><span>Roblox Studio, the first hour</span></div>
-
-<header class="top">
-  <div class="wrap">
-    <div class="eyebrow">PM case study, Roblox Studio, September 2026</div>
-    <h1>Can a first-time creator get from a blank Baseplate to a game a friend plays, in one sitting?</h1>
-    <p class="lede">I opened Roblox Studio for the first time with a stopwatch running and one goal: build something small, publish it, and have one friend play it on a phone. Thirty-one minutes in I had a published amusement park with a working coaster. Nobody but me could open it, and Studio could not tell me why. This is what happened, minute by minute, and what I would change.</p>
-    <div class="meta">
-      <span><b>Joyce Zhou</b></span>
-      <span>Friction log, 33 coded DevForum threads, competitive teardown</span>
-      <span>September 2026</span>
-    </div>
+<header class="masthead">
+  <div class="shell">
+    <a class="wordmark" href="/">Joyce Zhou</a>
+    <nav aria-label="Sections">
+      <a href="/#building">Building</a>
+      <a href="/projects/" class="here">Projects</a>
+      <a href="/#experience">Experience</a>
+      <a href="/#offhours">Off hours</a>
+      <a href="/#contact">Contact</a>
+    </nav>
   </div>
 </header>
 
-<nav class="toc"><div class="wrap">
-  <a href="#why">1 Why</a><a href="#hour">2 The hour</a><a href="#community">3 What other creators say</a><a href="#prior">4 Prior art and competitors</a><a href="#prd">5 PRD</a><a href="#mocks">6 Mockups</a><a href="#experiment">7 Experiment plan</a><a href="#log">Friction log</a>
-</div></nav>
+<main>
+<section class="hero">
+  <div class="shell">
+    <p class="eyebrow">PM case study &middot; Roblox Studio &middot; September 2026</p>
+    <h1>Can a first-time creator get from a blank Baseplate to a game a friend plays, in one sitting?</h1>
+    <p class="lede">I opened Roblox Studio for the first time with a stopwatch running and one goal: build something small, publish it, and have one friend play it on a phone. Thirty-one minutes in I had a published amusement park with a working coaster. Nobody but me could open it, and Studio could not tell me why. This is what happened, minute by minute, and what I would change.</p>
+    <div class="meta"><span>Joyce Zhou</span><span>Friction log, 33 coded DevForum threads, competitive teardown</span></div>
+    <div class="contents">
+      <a href="#why">Why</a><a href="#hour">The hour</a><a href="#community">Other creators</a><a href="#prior">Prior art</a><a href="#prd">PRD</a><a href="#mocks">Mockups</a><a href="#experiment">Experiment</a><a href="#log">Friction log</a>
+    </div>
+  </div>
+</section>
 
-<main class="wrap">
 
-<section id="why">
-  <div class="eyebrow">1</div>
+<section class="band" id="why">
+  <div class="shell">
+  <p class="band-head">01</p>
   <h2>Why I did this</h2>
-  <div class="prose">
+  <div class="text">
     <p>Roblox has made Studio dramatically more capable for people who already know what to ask it. In April 2026 the Assistant gained Planning Mode, mesh and procedural generation, a playtesting agent and MCP support; Roblox reported that 44 percent of the top 1,000 creators use Assistant or MCP tools, and described the audience as ambitious game developers.<sup><a href="#s1">1</a></sup> The Spring 2026 Creator Roadmap update covers AI, UI styling, asset tooling, analytics, localization and discovery; I could not find an item aimed at someone opening Studio for the first time.<sup><a href="#s2">2</a></sup></p>
     <p>That leaves a question worth a PM's time: does the agentic Studio work for a first-timer, and if not, where exactly does it break? I wanted an answer grounded in observation rather than opinion, so I used the method a Google or Stripe PM would use on their own product before proposing anything: a friction log.</p>
     <p>Three inputs. A stopwatch-timed friction log of my own first hour, with a row at every pause of roughly ten seconds. A coding pass over 33 DevForum threads from first-time and early creators, tagged by funnel stage and theme. A teardown of how Fortnite Creative and UEFN, Meta Horizon, Minecraft, Scratch and the now-closed Rec Room handle the same first hour.</p>
   </div>
-  <div class="note prose">
+  <div class="note">
     <p><b>What this is and is not.</b> The observed data on this page is one logged, screenshotted run plus public community evidence. N=1 friction logs are a normal discovery starting point: they generate hypotheses, and the experiment plan is how the hypotheses get tested. Every claim about Roblox here is either observed in the session or cited.</p>
+  </div>
+
   </div>
 </section>
 
-<section id="hour">
-  <div class="eyebrow">2</div>
+<section class="band" id="hour">
+  <div class="shell">
+  <p class="band-head">02</p>
   <h2>The hour</h2>
-  <div class="prose">
+  <div class="text">
     <p>Setup: MacBook, 13-inch screen, Studio installed shortly before on a new Roblox account. Scenario: a first-time creator opens Studio and tries to make and share a small game, using the Assistant when stuck. The Assistant prompt was fixed in advance and written in plain words, so that every later session can be compared against it: <i>“I want to build a rollercoaster ride in a nice amusement park.”</i></p>
   </div>
 
-  <div class="grid3">
-    <div class="tile"><div class="k">Prompt to finished park</div><div class="v mono">11 min</div><div class="s">Grass, paths, trees, lamp posts, a red spline coaster with a four-car train, a station and a sign. About 200 instances.</div></div>
-    <div class="tile"><div class="k">Time to publish</div><div class="v mono">31:00</div><div class="s">Published as Loop One. Private to me. The Publish dialog has no audience field.</div></div>
-    <div class="tile"><div class="k">Time to first player</div><div class="v mono">Not reached</div><div class="s">Share said “Make your game public to share it” and sent me to Creator Hub. Session ended at 33:00.</div></div>
+  <div class="figures">
+    <div><div class="k">Prompt to finished park</div><div class="v">11 min</div><div class="s">Grass, paths, trees, lamp posts, a red spline coaster with a four-car train, a station and a sign. About 200 instances.</div></div>
+    <div><div class="k">Time to publish</div><div class="v">31:00</div><div class="s">Published as Loop One. Private to me. The Publish dialog has no audience field.</div></div>
+    <div><div class="k">Time to first player</div><div class="v">Not reached</div><div class="s">Share said “Make your game public to share it” and sent me to Creator Hub. Session ended at 33:00.</div></div>
   </div>
 
   <div class="tablewrap">
   <table>
     <thead><tr><th>#</th><th>Elapsed</th><th>Step</th><th>What happened</th><th>Rating</th></tr></thead>
     <tbody>
-      <tr><td class="n">1</td><td class="t mono">0:40</td><td>Open Studio, new experience</td><td>Home page with a “Take a quick tour” card. New Experience opened a Baseplate straight away, with Toolbox and Terrain Editor docked left and the Assistant panel already open on the right.</td><td><span class="chip ok">Smooth</span></td></tr>
-      <tr><td class="n">2</td><td class="t mono">1:30</td><td>Work out what to do first</td><td>Ribbon: Home, Avatar, UI, Script, Model, Plugins. Nothing in the viewport suggested a first action. The open Assistant box was the only thing that read like an invitation to do something.</td><td><span class="chip warn">Friction</span></td></tr>
-      <tr><td class="n">3</td><td class="t mono">4:30</td><td>Place, move, resize a part</td><td>Part appeared on the SpawnLocation. Dragging a Scale handle deselected the part instead of scaling it. Typing a size in Properties did not take. Gave up after two tries and kept the default part.</td><td><span class="chip warn">Friction</span></td></tr>
-      <tr><td class="n">4</td><td class="t mono">5:30</td><td>Ask the Assistant, in plain words</td><td>“That sounds like a fun project,” then a three-step interview in a card: scope (just the coaster, coaster and small park, full park), visual style (cartoony, realistic, low-poly), build method (build from parts, AI-generated mesh, Creator Store asset). The card was clipped until I collapsed Explorer.</td><td><span class="chip warn">Friction</span></td></tr>
-      <tr><td class="n">5</td><td class="t mono">6:30</td><td>Answer and continue</td><td>Chose coaster and small park, cartoony, build from parts. A Review card listed my three answers with Edit and Continue. Clear.</td><td><span class="chip ok">Smooth</span></td></tr>
-      <tr><td class="n">6</td><td class="t mono">9:30</td><td>Wait for the build</td><td>“Planning next moves,” then “Generation is taking longer than expected, please wait.” Viewport unchanged for about four minutes. Then a yellow warning: “The current response exceeded the maximum output length,” with a Continue link. Still nothing built.</td><td><span class="chip bad">Blocker</span></td></tr>
-      <tr><td class="n">7</td><td class="t mono">15:40</td><td>Continue</td><td>Grass, a path, trees and lamp posts appeared at about 11:30; the coaster at about 13:00. Then a prompt: “This prompt will make changes to your scripts,” with Review, Accept for this prompt, Accept for this session. Accepted. Summary ended with “To test it out, just hit Play.”</td><td><span class="chip warn">Friction</span></td></tr>
-      <tr><td class="n">8</td><td class="t mono">17:30</td><td>Press Play</td><td>Spawned inside the train, because the train had been placed on the SpawnLocation. The train ran the track on its own; one car ended up off the rails by the station.</td><td><span class="chip warn">Friction</span></td></tr>
-      <tr><td class="n">9</td><td class="t mono">20:00</td><td>“Add a checkpoint script to this part”</td><td>Script-change gate again. Assistant renamed the part Checkpoint, resized it, added a script and explained it plainly. It worked. Nothing changed where my camera was pointing, so the only evidence was the chat.</td><td><span class="chip warn">Friction</span></td></tr>
-      <tr><td class="n">10</td><td class="t mono">22:00</td><td>Ask for a kill brick</td><td>Third script-change accept in a row. A KillBrick part with a debounced script appeared out of view.</td><td><span class="chip warn">Friction</span></td></tr>
-      <tr><td class="n">11</td><td class="t mono">22:15</td><td>Read a script</td><td>CheckpointScript opened as a tab. About 60 lines, heavily commented, readable.</td><td><span class="chip ok">Smooth</span></td></tr>
-      <tr><td class="n">12</td><td class="t mono">31:00</td><td>File, Publish to Roblox</td><td>File menu lists Save to File, Save to Roblox, Publish to Roblox and their variants in one list, seven items. Publish dialog: name, description, creator, devices, Team Create on, Data Sharing on by default (experience data used to train Roblox generative AI unless you opt out). No audience or visibility field. Title bar changed to Loop One at 31:00.</td><td><span class="chip warn">Friction</span></td></tr>
-      <tr><td class="n">13</td><td class="t mono">32:00</td><td>Share</td><td>Share button: “Make your game public to share it,” with a Game Settings button. Game Settings opened Experience Settings, whose Additional Settings tab says the rest lives on Creator Hub and links to Audience and Access. The audience setting, the age check and the two-day account rule all live outside Studio.</td><td><span class="chip bad">Blocker</span></td></tr>
-      <tr><td class="n">14</td><td class="t mono">33:00</td><td>Friend plays on a phone</td><td>Not reached. Audience change, age check and the friend test left for another day.</td><td><span class="chip bad">Blocker</span></td></tr>
+      <tr><td class="n">1</td><td class="t mono">0:40</td><td class="step">Open Studio, new experience</td><td>Home page with a “Take a quick tour” card. New Experience opened a Baseplate straight away, with Toolbox and Terrain Editor docked left and the Assistant panel already open on the right.</td><td><span class="chip ok">Smooth</span></td></tr>
+      <tr><td class="n">2</td><td class="t mono">1:30</td><td class="step">Work out what to do first</td><td>Ribbon: Home, Avatar, UI, Script, Model, Plugins. Nothing in the viewport suggested a first action. The open Assistant box was the only thing that read like an invitation to do something.</td><td><span class="chip warn">Friction</span></td></tr>
+      <tr><td class="n">3</td><td class="t mono">4:30</td><td class="step">Place, move, resize a part</td><td>Part appeared on the SpawnLocation. Dragging a Scale handle deselected the part instead of scaling it. Typing a size in Properties did not take. Gave up after two tries and kept the default part.</td><td><span class="chip warn">Friction</span></td></tr>
+      <tr><td class="n">4</td><td class="t mono">5:30</td><td class="step">Ask the Assistant, in plain words</td><td>“That sounds like a fun project,” then a three-step interview in a card: scope (just the coaster, coaster and small park, full park), visual style (cartoony, realistic, low-poly), build method (build from parts, AI-generated mesh, Creator Store asset). The card was clipped until I collapsed Explorer.</td><td><span class="chip warn">Friction</span></td></tr>
+      <tr><td class="n">5</td><td class="t mono">6:30</td><td class="step">Answer and continue</td><td>Chose coaster and small park, cartoony, build from parts. A Review card listed my three answers with Edit and Continue. Clear.</td><td><span class="chip ok">Smooth</span></td></tr>
+      <tr><td class="n">6</td><td class="t mono">9:30</td><td class="step">Wait for the build</td><td>“Planning next moves,” then “Generation is taking longer than expected, please wait.” Viewport unchanged for about four minutes. Then a yellow warning: “The current response exceeded the maximum output length,” with a Continue link. Still nothing built.</td><td><span class="chip bad">Blocker</span></td></tr>
+      <tr><td class="n">7</td><td class="t mono">15:40</td><td class="step">Continue</td><td>Grass, a path, trees and lamp posts appeared at about 11:30; the coaster at about 13:00. Then a prompt: “This prompt will make changes to your scripts,” with Review, Accept for this prompt, Accept for this session. Accepted. Summary ended with “To test it out, just hit Play.”</td><td><span class="chip warn">Friction</span></td></tr>
+      <tr><td class="n">8</td><td class="t mono">17:30</td><td class="step">Press Play</td><td>Spawned inside the train, because the train had been placed on the SpawnLocation. The train ran the track on its own; one car ended up off the rails by the station.</td><td><span class="chip warn">Friction</span></td></tr>
+      <tr><td class="n">9</td><td class="t mono">20:00</td><td class="step">“Add a checkpoint script to this part”</td><td>Script-change gate again. Assistant renamed the part Checkpoint, resized it, added a script and explained it plainly. It worked. Nothing changed where my camera was pointing, so the only evidence was the chat.</td><td><span class="chip warn">Friction</span></td></tr>
+      <tr><td class="n">10</td><td class="t mono">22:00</td><td class="step">Ask for a kill brick</td><td>Third script-change accept in a row. A KillBrick part with a debounced script appeared out of view.</td><td><span class="chip warn">Friction</span></td></tr>
+      <tr><td class="n">11</td><td class="t mono">22:15</td><td class="step">Read a script</td><td>CheckpointScript opened as a tab. About 60 lines, heavily commented, readable.</td><td><span class="chip ok">Smooth</span></td></tr>
+      <tr><td class="n">12</td><td class="t mono">31:00</td><td class="step">File, Publish to Roblox</td><td>File menu lists Save to File, Save to Roblox, Publish to Roblox and their variants in one list, seven items. Publish dialog: name, description, creator, devices, Team Create on, Data Sharing on by default (experience data used to train Roblox generative AI unless you opt out). No audience or visibility field. Title bar changed to Loop One at 31:00.</td><td><span class="chip warn">Friction</span></td></tr>
+      <tr><td class="n">13</td><td class="t mono">32:00</td><td class="step">Share</td><td>Share button: “Make your game public to share it,” with a Game Settings button. Game Settings opened Experience Settings, whose Additional Settings tab says the rest lives on Creator Hub and links to Audience and Access. The audience setting, the age check and the two-day account rule all live outside Studio.</td><td><span class="chip bad">Blocker</span></td></tr>
+      <tr><td class="n">14</td><td class="t mono">33:00</td><td class="step">Friend plays on a phone</td><td>Not reached. Audience change, age check and the friend test left for another day.</td><td><span class="chip bad">Blocker</span></td></tr>
     </tbody>
   </table>
   </div>
   <p class="cap">Unplanned rows: the Explorer, Properties and Assistant panels share one column on a 13-inch screen, so the Assistant's question cards were clipped until I collapsed the other two (5:45). Studio wrote an auto-recovery file mid-session (20:30), harmless. The complete log with every row is embedded at the bottom of this page.</p>
 
-  <div class="figs2">
-    <figure><img src="img/me_06_response_died_continue_then_plan.jpg" alt="Roblox Studio with the Assistant panel showing a Continue button after the response exceeded the maximum output length, and the plan it produced afterwards" loading="lazy"><figcaption>Row 6 and 7. The Assistant's first response hit the output-length limit with nothing in the viewport. Continue produced the plan and, minutes later, the park.</figcaption></figure>
-    <figure><img src="img/me_07_what_it_built_hit_play.jpg" alt="The finished amusement park: red coaster track, four-car train, station, sign, trees and lamp posts, with the Assistant summary saying to hit Play" loading="lazy"><figcaption>Row 7. About eleven minutes after the prompt: track, train, station, sign, decorations. Far beyond what I could have built by hand in an hour.</figcaption></figure>
-    <figure><img src="img/me_12_publish_dialog.jpg" alt="Publish Experience dialog with name, description, creator, devices, Team Create and Data Sharing fields, and no audience field" loading="lazy"><figcaption>Row 12. The Publish dialog. Data Sharing is on by default. There is no field for who can open the experience.</figcaption></figure>
-    <figure><img src="img/me_13_share_make_public.jpg" alt="Share Game window in Studio reading Make your game public to share it, with a Game Settings button" loading="lazy"><figcaption>Row 13. Share, one minute after publishing. The setting it refers to is on a different website.</figcaption></figure>
+  <div class="plates">
+    <figure class="plate"><div class="frame"><img src="img/me_06_response_died_continue_then_plan.jpg?v=4" alt="Roblox Studio with the Assistant panel showing a Continue button after the response exceeded the maximum output length, and the plan it produced afterwards" loading="lazy"></div><figcaption><b>Row 6 and 7</b>The Assistant's first response hit the output-length limit with nothing in the viewport. Continue produced the plan and, minutes later, the park.</figcaption></figure>
+    <figure class="plate"><div class="frame"><img src="img/me_07_what_it_built_hit_play.jpg?v=4" alt="The finished amusement park: red coaster track, four-car train, station, sign, trees and lamp posts, with the Assistant summary saying to hit Play" loading="lazy"></div><figcaption><b>Row 7</b>About eleven minutes after the prompt: track, train, station, sign, decorations. Far beyond what I could have built by hand in an hour.</figcaption></figure>
+    <figure class="plate"><div class="frame"><img src="img/me_12_publish_dialog.jpg?v=4" alt="Publish Experience dialog with name, description, creator, devices, Team Create and Data Sharing fields, and no audience field" loading="lazy"></div><figcaption><b>Row 12</b>The Publish dialog. Data Sharing is on by default. There is no field for who can open the experience.</figcaption></figure>
+    <figure class="plate"><div class="frame"><img src="img/me_13_share_make_public.jpg?v=4" alt="Share Game window in Studio reading Make your game public to share it, with a Game Settings button" loading="lazy"></div><figcaption><b>Row 13</b>Share, one minute after publishing. The setting it refers to is on a different website.</figcaption></figure>
   </div>
 
 
-  <h3>More from the run</h3>
-  <div class="figs2">
-    <figure><img src="img/me_01_home_quick_tour.jpg" alt="Roblox Studio Home page with a Take a quick tour card, recent experiences and templates" loading="lazy"><figcaption>Row 1. The Home page has a quick tour. New Experience skips straight past it.</figcaption></figure>
-    <figure><img src="img/me_04_assistant_three_questions.jpg" alt="Assistant panel showing the three set-up questions and my answers: scope, visual style, build method" loading="lazy"><figcaption>Row 4 and 5. The three-question interview and Review card. Clear, but the third question assumes you know what a mesh is.</figcaption></figure>
-    <figure><img src="img/me_09_checkpoint_explanation.jpg" alt="Assistant explaining the checkpoint it added to the selected part" loading="lazy"><figcaption>Row 9. The checkpoint worked and the explanation was plain. Nothing in the viewport changed where I was looking.</figcaption></figure>
-    <figure><img src="img/me_12_publish_as_eligibility_private.jpg" alt="Publish to Roblox As picker with Loop One marked Private and a banner to check eligibility to publish public experiences" loading="lazy"><figcaption>Row 12. The Publish As picker is the one place in Studio that mentions eligibility, in a banner, after the fact.</figcaption></figure>
-    <figure><img src="img/me_13_settings_audience_on_creator_hub.jpg" alt="Experience Settings, Additional Settings tab, stating that further settings such as Audience and Access live on Creator Hub" loading="lazy"><figcaption>Row 13. Experience Settings sends you out of Studio for Audience and Access.</figcaption></figure>
+  <h3>Two more moments</h3>
+  <div class="plates">
+    <figure class="plate"><div class="frame"><img src="img/me_04_assistant_three_questions.jpg?v=4" alt="Assistant panel showing the three set-up questions and my answers: scope, visual style, build method" loading="lazy"></div><figcaption><b>Row 4 and 5</b>The three-question interview and Review card. Clear, but the third question assumes you know what a mesh is.</figcaption></figure>
+    <figure class="plate"><div class="frame"><img src="img/me_13_settings_audience_on_creator_hub.jpg?v=4" alt="Experience Settings, Additional Settings tab, stating that further settings such as Audience and Access live on Creator Hub" loading="lazy"></div><figcaption><b>Row 13</b>Experience Settings sends you out of Studio for Audience and Access.</figcaption></figure>
   </div>
 
   <h3>Three findings from the log</h3>
-  <div class="prose">
+  <div class="text">
     <p><b>The first build looked like a failure for four minutes, then said it had failed.</b> “Generation is taking longer than expected” sat on screen with an empty viewport, then “The current response exceeded the maximum output length.” Continue rescued it, but a first-timer has no reason to know what output length means or that Continue is safe to press. The result, when it came, was excellent. The problem was the four minutes before it.</p>
     <p><b>Published does not mean shareable, and Studio hands you to a website to find out why.</b> The Publish dialog has no audience field. Share says “Make your game public,” Game Settings says the setting has moved to Creator Hub, and Creator Hub is where the age check and the two-day account rule live. A creator who has just spent half an hour building leaves Studio to learn that nobody can play yet.</p>
     <p><b>Every script action stops for an Accept, and none of them changed anything I could see.</b> Three accept prompts in a row. The checkpoint and kill brick both worked, but from where the camera sat, a working script and a broken one look identical until you press Play. By the third prompt I understood why a first-timer would press Accept All for the session without reading.</p>
     <p>What worked, and should be protected: the three-question interview plus the Review card is clear and quick. The finished park was far beyond what I could have built by hand. Play from Studio is instant. The checkpoint script was readable and commented. The Home page does have a first-timer path, the quick tour, but it lives on the Home page and not inside the create flow.</p>
   </div>
+
+  </div>
 </section>
 
-<section id="community">
-  <div class="eyebrow">3</div>
+<section class="band" id="community">
+  <div class="shell">
+  <p class="band-head">03</p>
   <h2>Do other new creators hit the same walls?</h2>
-  <div class="prose">
+  <div class="text">
     <p>I coded 33 DevForum threads from first-time and early creators, 2023 to August 2026, by funnel stage and theme. DevForum skews toward people who already cleared install and earned posting rights, so true first-hour dropouts are under-represented; Reddit was not accessible from my research setup. With that caveat, the themes line up with the log.</p>
   </div>
   <div class="bars" role="img" aria-label="Theme frequency across 33 coded DevForum threads">
@@ -128,15 +140,18 @@
   <blockquote>“Currently it's pretty bad and is unable to generate even simple features.”<cite>Reply on the Planning Mode announcement thread, DevForum, April 2026<sup><a href="#s4">4</a></sup></cite></blockquote>
   <blockquote>“Roblox won't give you players. You have to find them yourself.”<cite>Reply on a zero-visits thread, DevForum, July 2026<sup><a href="#s5">5</a></sup></cite></blockquote>
 
-  <div class="prose">
+  <div class="text">
     <p>One hypothesis did not survive. I expected blank-canvas paralysis to be the main story. It shows up in only two threads, and in my own run it cost about a minute because the Assistant panel was already open. The expensive breaks come later: while the first generation runs, and after publish.</p>
+  </div>
+
   </div>
 </section>
 
-<section id="prior">
-  <div class="eyebrow">4</div>
+<section class="band tint" id="prior">
+  <div class="shell">
+  <p class="band-head">04</p>
   <h2>What Roblox has already built, and how others handle the same hour</h2>
-  <div class="prose">
+  <div class="text">
     <p>Roblox has invested at both ends of this problem. For beginners: the quick tour on the Studio Home page, Creator Hub tutorials and curricula, and starter templates that are complete games a newcomer can open and press Play on within minutes. For capable creators: Cube, its 3D foundation model (March 2025), 4D generation (February 2026) and the agentic Studio release (April 2026) with Planning Mode and a playtesting agent.<sup><a href="#s1">1</a></sup> Since December 2025, publishing to the public has required ID verification or a real-money purchase, and since May 2026 reaching under-16s has required an age check, ID, 2FA, Roblox Plus or a one-time fee, and an engagement evaluation.<sup><a href="#s6">6</a></sup> Those are safety decisions and this proposal does not touch them. It is about when a new creator learns they exist.</p>
     <p>The gap is between the two ends. The beginner path lives on the Home page and in documentation; the Assistant is built for people who already know what to ask it and can read what it did.</p>
   </div>
@@ -155,15 +170,18 @@
   </div>
   <p class="cap">Scores from my teardown of official docs and announcements, September 6, 2026. Rec Room scored 5 on in-game creation and is excluded because it closed on June 1, 2026. Minecraft omitted (no first-party editor for add-ons).</p>
 
-  <div class="prose">
+  <div class="text">
     <p>Two borrowable mechanics. Fortnite's Discover row gives newly published islands deliberate trial impressions before they have an audience, so the cold start is passable without off-platform marketing.<sup><a href="#s7">7</a></sup> Scratch puts the tutorial beside the canvas rather than on a separate page. Roblox is the strongest of the group on in-tool AI and the weakest on the last mile, which is exactly where my hour ended.</p>
+  </div>
+
   </div>
 </section>
 
-<section id="prd">
-  <div class="eyebrow">5</div>
+<section class="band" id="prd">
+  <div class="shell">
+  <p class="band-head">05</p>
   <h2>PRD: a first hour that ends with a link a friend can open</h2>
-  <div class="prose">
+  <div class="text">
     <h3>Problem</h3>
     <p>A first-time creator can prompt the Assistant, get a genuinely good result, press Play and publish in about half an hour. Along the way the first generation looks broken for four minutes and then reports an error, the build-method question may quietly decide whether the thing they asked for is rideable, script prompts interrupt without visible payoff, and at the end the published link opens for nobody, with the reason on a different website. </p>
     <h3>Who</h3>
@@ -207,12 +225,15 @@
     <h3>Risks</h3>
     <p>Surfacing gates earlier could reduce publishes; the experiment's kill criterion covers this. Auto-continue could hide real failures; it is capped at one continuation before asking. RDC 2026 runs September 10 to 12 and may announce changes here, in which case this becomes an evaluation of what shipped rather than a pitch for it.</p>
   </div>
+
+  </div>
 </section>
 
-<section id="mocks">
-  <div class="eyebrow">6</div>
+<section class="band tint" id="mocks">
+  <div class="shell">
+  <p class="band-head">06</p>
   <h2>Mockups</h2>
-  <div class="prose"><p>Low-fidelity, drawn to show behaviour rather than visual design. Left: the Publish dialog with the audience step. Right: the Assistant panel during a long first generation.</p></div>
+  <div class="text"><p>Low-fidelity, drawn to show behaviour rather than visual design. Left: the Publish dialog with the audience step. Right: the Assistant panel during a long first generation.</p></div>
 
   <div class="two">
     <div class="mock" aria-label="Mockup: Publish to Roblox with audience step">
@@ -246,12 +267,15 @@
     </div>
   </div>
   <p class="cap">The left card also changes what happens after the hour: the creator leaves knowing the exact day a friend can open the link, instead of discovering it by sending a link that fails.</p>
+
+  </div>
 </section>
 
-<section id="experiment">
-  <div class="eyebrow">7</div>
+<section class="band" id="experiment">
+  <div class="shell">
+  <p class="band-head">07</p>
   <h2>Experiment plan</h2>
-  <div class="prose">
+  <div class="text">
     <h3>Quantitative</h3>
     <dl class="kv">
       <dt>Population</dt><dd>Accounts under 7 days old opening Studio for the first time.</dd>
@@ -265,21 +289,28 @@
     <h3>Qualitative</h3>
     <p>Five observed sessions per arm using the same friction-log method, prompt and step list as section 2, so the run on this page is the baseline the arms are compared against. Observer sits beside the participant, does not help, logs a row at every pause of roughly ten seconds, and asks three questions at the end in the participant's own words: the most confusing moment, whether they trusted the Assistant, and whether they would open Studio again tomorrow.</p>
   </div>
+
+  </div>
 </section>
 
-<section id="log">
-  <div class="eyebrow">Appendix</div>
+<section class="band" id="log">
+  <div class="shell">
+  <p class="band-head">Appendix</p>
   <h2>The friction log</h2>
-  <div class="prose"><p>The complete log as I kept it during the run: details block, method, every timed row with its rating and screenshot reference, and the summary. <a href="https://docs.google.com/spreadsheets/d/19shdkZhoGck5UpMyfB0tXv_EFp6nd07WBsPz7BrB5BM/edit" target="_blank" rel="noopener">Open the sheet in a new tab.</a></p></div>
-  <figure><a href="https://docs.google.com/spreadsheets/d/19shdkZhoGck5UpMyfB0tXv_EFp6nd07WBsPz7BrB5BM/edit" target="_blank" rel="noopener"><img src="img/friction_log_preview.jpg" alt="The friction log: details block and the first eight timed rows with Smooth, Friction and Blocker ratings" loading="lazy"></a><figcaption>The Me tab, first eight rows. Click to open the full sheet in a new tab.</figcaption></figure>
+  <div class="text"><p>The complete log as I kept it during the run: details block, method, every timed row with its rating and screenshot reference, and the summary. <a href="https://docs.google.com/spreadsheets/d/19shdkZhoGck5UpMyfB0tXv_EFp6nd07WBsPz7BrB5BM/edit" target="_blank" rel="noopener">Open the sheet in a new tab.</a></p></div>
+  <figure class="plate"><div class="frame"><a href="https://docs.google.com/spreadsheets/d/19shdkZhoGck5UpMyfB0tXv_EFp6nd07WBsPz7BrB5BM/edit" target="_blank" rel="noopener"><img src="img/friction_log_preview.jpg" alt="The friction log: details block and the first eight timed rows with Smooth, Friction and Blocker ratings" loading="lazy"></a></div><figcaption><b>Friction log</b>The Me tab, first eight rows. Click to open the full sheet in a new tab.</figcaption></figure>
   <div class="embed"><iframe src="https://docs.google.com/spreadsheets/d/19shdkZhoGck5UpMyfB0tXv_EFp6nd07WBsPz7BrB5BM/htmlembed?widget=true&amp;headers=false" title="Roblox Studio, first hour: friction log" loading="lazy"></iframe></div>
   <p class="cap">Method after the Google and Stripe friction-log convention: one row per pause of roughly ten seconds, rated Smooth, Friction or Blocker, with a screenshot reference where one was taken.</p>
+
+  </div>
 </section>
 
 </main>
 
-<footer><div class="wrap">
-  <div class="eyebrow">Sources</div>
+<footer class="colophon" id="contact">
+  <div class="shell">
+    <p class="band-head">Sources</p>
+    <div class="sources">
   <ol>
     <li id="s1">Roblox Newsroom, “Roblox Studio is Going Agentic,” April 2026. <a href="https://about.roblox.com/newsroom/2026/04/roblox-studio-going-agentic" target="_blank" rel="noopener">about.roblox.com</a>. Also “Introducing Roblox Cube,” March 2025, and “Accelerating Creation, Powered by Cube,” February 2026.</li>
     <li id="s2">DevForum, “Creator Roadmap 2026: Spring Update.” <a href="https://devforum.roblox.com/t/creator-roadmap-2026-spring-update/4625473" target="_blank" rel="noopener">devforum.roblox.com</a>. Reviewed item by item on September 6, 2026.</li>
@@ -290,6 +321,16 @@
     <li id="s7">Fortnite News, “The Fortnite Discover Section: Your Questions Answered,” August 13, 2024. <a href="https://www.fortnite.com/news/the-fortnite-discover-section-your-questions-answered" target="_blank" rel="noopener">fortnite.com</a>.</li>
   </ol>
   <p>Screenshots are from my own session in September 2026. Roblox, Roblox Studio and Creator Hub are trademarks of Roblox Corporation; this is an independent study and is not affiliated with Roblox. <a href="/projects/">Back to projects</a>.</p>
-</div></footer>
+</div>
+    <div class="row2">
+      <span>Los Angeles, CA &middot; Say hello anytime</span>
+      <ul>
+        <li><a href="mailto:jezhou@usc.edu">Email</a></li>
+        <li><a href="https://github.com/joycezhou66">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/joycezhou22/">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
 </body>
 </html>
