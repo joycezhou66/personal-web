@@ -142,6 +142,7 @@
 
   .ratio-portrait .frame{aspect-ratio:4/5}
   .ratio-portrait .frame img{object-position:center 22%}
+  .hero .plate.ratio-portrait{max-width:220px;justify-self:end}
   .ratio-wide .frame{aspect-ratio:16/9}
   .ratio-screen .frame{aspect-ratio:3/2}
   .ratio-screen .frame img{object-fit:contain;background:#fff;padding:.5rem}
@@ -268,6 +269,7 @@
   @media (max-width:860px){
     .hero{padding:3.5rem 0 2.5rem}
     .hero .shell{grid-template-columns:1fr;gap:2.5rem;align-items:start}
+    .hero .plate.ratio-portrait{max-width:170px;justify-self:start}
     .entry{grid-template-columns:1fr;gap:1.75rem}
     .roles li{grid-template-columns:1fr;gap:.3rem}
     .band{padding:3rem 0}
