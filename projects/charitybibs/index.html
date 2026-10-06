@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CharityBibs — Joyce Zhou</title>
+<meta name="description" content="A product case study: how I built charitybibs.com, the only site that compares every official NYC Marathon charity bib program on support, open status and terms, and what happened when it launched.">
+<meta property="og:title" content="CharityBibs — Joyce Zhou">
+<meta property="og:description" content="Problem to launch: how I built the site that compares all 655 official NYC Marathon charity bib programs, with every fact quoted from the charity's own page. 20K pageviews in its first 16 days.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://joycezhou.me/projects/charitybibs/img/shortlist.jpg">
+<meta name="theme-color" content="#fcfcfb">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/projects/case.css?v=2">
+<style>
+  .steps{list-style:none;padding:0;margin:1.6rem 0 .4rem;max-width:66ch;counter-reset:step}
+  .steps li{display:grid;grid-template-columns:2.2rem minmax(0,1fr);grid-template-rows:auto auto;gap:.2rem 1rem;padding:.9rem 0;border-top:1px solid var(--rule);counter-increment:step}
+  .steps li:first-child{border-top:none;padding-top:0}
+  .steps li::before{content:counter(step,decimal-leading-zero);font-family:var(--mono);font-size:.74rem;color:var(--ink-soft);padding-top:.3rem;grid-row:1 / span 2}
+  .steps b{display:block;font-weight:600;margin-bottom:.15rem;grid-column:2}
+  .steps span{display:block;color:var(--ink-soft);font-size:.95rem;line-height:1.55;grid-column:2}
+  .cta{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.8rem 0 0}
+  .cta a{display:inline-block;font-family:var(--mono);font-size:.77rem;letter-spacing:.04em;text-decoration:none;color:var(--accent);border:1px solid var(--rule);background:#fff;padding:.45rem .9rem;transition:border-color .18s ease}
+  .cta a.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .cta a:hover{border-color:var(--accent)}
+  .phoneplate{max-width:300px}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="shell">
+    <a class="wordmark" href="/">Joyce Zhou</a>
+    <nav aria-label="Sections">
+      <a href="/#building">Building</a>
+      <a href="/projects/" class="here">Projects</a>
+      <a href="/#experience">Experience</a>
+      <a href="/#offhours">Off hours</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="shell">
+    <p class="eyebrow">Product, shipped &middot; charitybibs.com &middot; September 2026</p>
+    <h1>Which NYC Marathon charity should I run for? Nothing answered it, so I built the site that does.</h1>
+    <p class="lede">A charity bib is a $3,000 to $10,000 fundraising pledge, backed by a credit card you hand over at acceptance. The two things that decide whether you'll make it, the help the charity gives you and what happens if you fall short, are not published where you choose. CharityBibs reads every official charity's pages, quotes them, and turns three questions into a shortlist. It passed 20,000 pageviews in its first 16 days.</p>
+    <div class="meta"><span>Joyce Zhou, solo</span><span>Research, PRD, design, pipeline, launch</span></div>
+    <div class="cta">
+      <a class="primary" href="https://charitybibs.com" target="_blank" rel="noopener">Open charitybibs.com</a>
+      <a href="https://github.com/joycezhou66/charitybibs" target="_blank" rel="noopener">Code on GitHub</a>
+      <a href="https://github.com/joycezhou66/charitybibs/blob/main/docs/PRD.md" target="_blank" rel="noopener">PRD</a>
+    </div>
+    <div class="contents">
+      <a href="#problem">Problem</a><a href="#thesis">Finding the thesis</a><a href="#product">The product</a><a href="#build">How it works</a><a href="#results">Results</a><a href="#next">Next</a>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="problem">
+  <div class="shell">
+  <p class="band-head">01</p>
+  <h2>The problem</h2>
+  <div class="text">
+    <p>Most people who want to run the NYC Marathon don't get in through the drawing. The other route is a charity bib: the charity gives you a guaranteed entry, you promise to raise a minimum for them, and you put a card on file that gets charged for whatever you don't raise.</p>
+    <p>The charity's page advertises one number, the minimum. It usually does not say whether there is a coach, a team, or someone to help you fundraise. It usually does not say what happens if you fall short, when the card is charged, or whether an injury releases you. Those answers live on other pages, in PDFs, or in an agreement you see after you apply. I read all 27 of the partner programs I started with to measure how bad it was.</p>
+  </div>
+
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>What I checked</th><th>Count</th><th>What it means</th></tr></thead>
+    <tbody>
+      <tr><td class="step">Minimum between $3,000 and $5,000</td><td class="t mono">22 of 27</td><td>Price is not the differentiator.</td></tr>
+      <tr><td class="step">Support offered (coach, group runs, fundraising help, events, gear, logistics)</td><td class="t mono">0 to 8 of 10</td><td>Support is the differentiator, and it's invisible until you dig.</td></tr>
+      <tr><td class="step">Still accepting runners in mid-September</td><td class="t mono">7 of 27</td><td>9 waitlisted, 7 closed, 4 don't say. Without status, half the links are dead ends.</td></tr>
+      <tr><td class="step">Say what happens if you don't raise it all</td><td class="t mono">12 of 27</td><td>Every one that does: the balance goes on your card.</td></tr>
+      <tr><td class="step">Publish a date to back out for free</td><td class="t mono">3 of 27</td><td>All three had already passed for 2026.</td></tr>
+      <tr><td class="step">Publish none of the four key terms</td><td class="t mono">15 of 27</td><td>The terms arrive after you apply.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="cap" style="margin-bottom:1.6rem">From the PRD, September 2026. Every count is reproducible from the charities' pages, which the site links to.</p>
+
+  <div class="text">
+    <p>The cost on the runner's side is people who never sign up because they aren't sure they can raise the money, and people who sign up with the wrong charity and stall. The cost on the charity's side is contractual: each prepays NYRR for every entry, and unfilled entries are not refunded.</p>
+  </div>
+  </div>
+</section>
+
+<section class="band tint" id="thesis">
+  <div class="shell">
+  <p class="band-head">02</p>
+  <h2>Finding the thesis: three PRDs in two days, two of them killed</h2>
+  <div class="text">
+    <p>I wrote the first version of the spec on a Saturday and the version that shipped the next day. The thing I'm proudest of in this project is what got cut.</p>
+  </div>
+
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>Version</th><th>Thesis</th><th>What happened</th></tr></thead>
+    <tbody>
+      <tr><td class="step">v1 &middot; Discovery</td><td>240,000 people were rejected from the drawing. Help them find a charity bib.</td><td><span class="chip bad">Dropped</span> Marathon Ballot already lists about 190 charities across the Majors. Building it again would have been a narrower copy.</td></tr>
+      <tr><td class="step">v2 &middot; Cost transparency</td><td>A bib is a financial liability with hidden fees. Show the true cost and rank by it.</td><td><span class="chip bad">Killed</span> I pre-registered the kill criterion before testing: if ranking by total exposure moved fewer than 10% of rows, the thesis was dead. 6 of 27 rows moved, mostly by one place. Exposure was the headline minimum plus a near-constant $315 entry fee.</td></tr>
+      <tr><td class="step">v3 &middot; Support and access</td><td>What actually varies between charities is support, whether they're still open, and whether they publish the terms. The barrier was never hidden cost. It was fear of not raising the money.</td><td><span class="chip ok">Shipped</span> The page's job changed from warning people to enabling them. The cost research became the fine print under every charity instead of the headline.</td></tr>
+      <tr><td class="step">v3.1 &middot; From list to answer</td><td>Same data, different shape. A 27-row table still made the reader do the ranking.</td><td><span class="chip ok">Shipped</span> After a pass over every other marathon's charity page (all logo grids, name lists or hero photos), the page was rebuilt to ask three questions first and return a shortlist with reasons.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="note">
+    <p><b>One more base rate I checked.</b> Injury policy felt important, so I weighted it heavily in v3 until I looked at the data: in a 735-runner NYC cohort, 40% got injured in training but only 4.1% were too injured to race. It moved to the fine print.</p>
+  </div>
+  </div>
+</section>
+
+<section class="band" id="product">
+  <div class="shell">
+  <p class="band-head">03</p>
+  <h2>The product</h2>
+  <div class="text">
+    <p>Three questions, a shortlist, and the fine print. You say what you want to run for, what help you want, and how soon you need a spot. The site returns the charities that fit best and says, in plain words, why each one is there and what it doesn't say. The full list sits one click below.</p>
+  </div>
+
+  <div class="figures">
+    <div><div class="k">Question 1</div><div class="v">Cause</div><div class="s">Seventeen causes, each showing how many charities are in it and how many are taking runners today.</div></div>
+    <div><div class="k">Question 2</div><div class="v">Help</div><div class="s">People to train with, help raising money, both, or just the spot.</div></div>
+    <div><div class="k">Question 3</div><div class="v">How soon</div><div class="s">Only charities open now, include waitlists, or show everything including closed.</div></div>
+  </div>
+
+  <div class="plates">
+    <figure class="plate"><div class="frame"><a href="https://charitybibs.com" target="_blank" rel="noopener"><img src="img/questions.jpg" alt="The first question on charitybibs.com: What do you want to run for? with eighteen causes and counts of charities taking runners" loading="lazy"></a></div><figcaption><b>Start</b>One question at a time. The counts next to each cause are live from the data, so you never pick a cause with nobody taking runners by accident.</figcaption></figure>
+    <figure class="plate"><div class="frame"><a href="https://charitybibs.com" target="_blank" rel="noopener"><img src="img/shortlist.jpg" alt="A shortlist of three cancer charities with their minimums, what each gives you, and what each doesn't say, followed by five more that also fit" loading="lazy"></a></div><figcaption><b>Shortlist</b>Each card says what the charity gives you and, in gray, what it doesn't say. Status, minimum and how many of the four fine print questions it answers sit on one line.</figcaption></figure>
+    <figure class="plate"><div class="frame"><img src="img/fineprint.jpg" alt="The fine print panel for one charity: how much to raise, what they give you, are they taking runners, and four questions marked Not on their page, ask before you sign up" loading="lazy"></div><figcaption><b>The fine print</b>Four questions under every charity: what if I don't raise it all, what if I get hurt, can I move to next year, until when can I back out for free. "Not on their page. Ask before you sign up." is an honest answer.</figcaption></figure>
+    <figure class="plate phoneplate"><div class="frame"><img src="img/phone.jpg" alt="The same shortlist on a phone" loading="lazy"></div><figcaption><b>Phone</b>The same shortlist at 390px, no horizontal scroll. The three questions were designed to be answered with a thumb.</figcaption></figure>
+  </div>
+
+  <h3>Rules I held the page to</h3>
+  <ul class="plain">
+    <li><b>Never estimate.</b> Every number links to the exact page it came from and the date it was read. "Not published" is a valid value. Nothing is filled in.</li>
+    <li><b>Plain words, any age.</b> No "shortfall", "deferral" or "disclosed". Say "if you don't raise it all", "move to next year", "they don't say".</li>
+    <li><b>Show what's missing.</b> The reasons on each card list what the charity doesn't say, not only what it does, because that's what the runner has to ask about.</li>
+    <li><b>Independent.</b> No affiliate links, no sponsored placement, no affiliation with NYRR or any charity. A correction address on every card.</li>
+  </ul>
+  </div>
+</section>
+
+<section class="band tint" id="build">
+  <div class="shell">
+  <p class="band-head">04</p>
+  <h2>How it works</h2>
+  <div class="text">
+    <p>The site is static. Behind it is a pipeline that reads the charities' pages, extracts a fixed set of fields with a language model, and throws away anything the model says that the page doesn't. That last step is the whole product: a comparison site is only useful if it's right.</p>
+  </div>
+
+  <ol class="steps">
+    <li><b>Seed</b><span>Captured NYRR's official partner list: 655 charities with their Gold, Silver and Bronze tiers, categories and websites. Rebuilding the list is idempotent, so a charity that joins or leaves shows up as a diff.</span></li>
+    <li><b>Crawl</b><span>Headless Chromium fetches each charity's marathon page, FAQ, application and any PDF, respecting robots.txt, with a hard cap per charity so one slow site can't stall the run.</span></li>
+    <li><b>Extract</b><span>Claude fills a fixed schema through a forced tool call: minimum, fee, status, deadline, support, and the four terms. Every non-null field must come with a verbatim quote and the URL it came from.</span></li>
+    <li><b>Verify</b><span>Each quote is searched for in the fetched text. If it isn't there, the field is dropped and flagged. A minimum that was already reviewed only changes when the old figure is gone from the new quote, which caught the model picking a "fundraiser only" tier over the bib tier.</span></li>
+    <li><b>Diff and review</b><span>A GitHub Action runs weekly, re-reads the charities, and opens a pull request with a human-readable change list. Nothing publishes until I read it.</span></li>
+    <li><b>Publish</b><span>Promote, rebuild, deploy to Cloudflare Pages. Every change to the data is logged in a changelog.</span></li>
+  </ol>
+
+  <div class="figures">
+    <div><div class="k">Charities read</div><div class="v">282</div><div class="s">The rest are listed from the official index and marked "not read yet" rather than left out.</div></div>
+    <div><div class="k">Cost to read them</div><div class="v">$8.72</div><div class="s">About 3 cents per charity. The run meters its own spend and stops cleanly at a budget or when credit runs out.</div></div>
+    <div><div class="k">Tests</div><div class="v">32</div><div class="s">Budget stops, the verify rules, cache resume, the seed builder, the render. All pass before any data commit.</div></div>
+  </div>
+
+  <div class="note">
+    <p><b>Stack.</b> Python, Playwright, the Claude API, pytest, GitHub Actions, Cloudflare Pages, Plausible. One HTML template, no framework, no build step beyond a Python script.</p>
+  </div>
+  </div>
+</section>
+
+<section class="band" id="results">
+  <div class="shell">
+  <p class="band-head">05</p>
+  <h2>Results</h2>
+
+  <div class="figures">
+    <div><div class="k">Pageviews, first 16 days</div><div class="v">20,336</div><div class="s">Cloudflare Web Analytics, Sept 15 to Sept 30, 2026, no paid promotion.</div></div>
+    <div><div class="k">Charities compared</div><div class="v">655</div><div class="s">Every official NYC Marathon partner. The official directories list names and minimums only.</div></div>
+    <div><div class="k">Time to first version</div><div class="v">2 days</div><div class="s">Research, three PRDs, the site and the pipeline, Sept 13 to 14. Launched Sept 15.</div></div>
+  </div>
+
+  <div class="text">
+    <p>CharityBibs is the only place that compares NYC Marathon charity programs on the things that decide whether a runner succeeds: the support they get, whether the program is still open, and what the terms are. NYRR's directory and the race-day aggregators list names and minimums.</p>
+    <p>Pageviews are a reach number, not an outcome. The outcome I care about is a runner clicking through to a charity they can actually finish with, so outbound clicks to charity pages and the cause each visitor picks are tracked as goals. The honest next step is to compare those with the charities' own application numbers, which needs the charities' help.</p>
+  </div>
+  </div>
+</section>
+
+<section class="band tint" id="next">
+  <div class="shell">
+  <p class="band-head">06</p>
+  <h2>What I'd do next</h2>
+  <ul class="plain">
+    <li><b>Read the remaining 373 charities.</b> They're listed and linked today, but marked as not yet read. Nearly all are Bronze partners with a single page to read.</li>
+    <li><b>Fix the collapsed FAQ problem.</b> About two dozen charities hide the four terms behind accordions the crawler doesn't expand, so their support fields come back empty. A click-to-expand pass would recover them.</li>
+    <li><b>Get charities to correct their own rows.</b> Every card has a correction address. Charities with an open program and good support have the most to gain from being accurate here.</li>
+    <li><b>Boston and Chicago.</b> Same pipeline, new seed lists. London and Berlin run through a different intermediary and need a different seed strategy.</li>
+  </ul>
+  <div class="cta">
+    <a class="primary" href="https://charitybibs.com" target="_blank" rel="noopener">Open charitybibs.com</a>
+    <a href="https://charitybibs.com/about.html" target="_blank" rel="noopener">How it works, for runners</a>
+    <a href="https://github.com/joycezhou66/charitybibs" target="_blank" rel="noopener">Code on GitHub</a>
+    <a href="https://github.com/joycezhou66/charitybibs/blob/main/docs/PRD.md" target="_blank" rel="noopener">PRD, v1 to v3</a>
+    <a href="https://github.com/joycezhou66/charitybibs/blob/main/CHANGELOG.md" target="_blank" rel="noopener">Data changelog</a>
+  </div>
+  </div>
+</section>
+</main>
+
+<footer class="colophon" id="contact">
+  <div class="shell">
+    <div class="row2">
+      <span>Los Angeles, CA &middot; Say hello anytime</span>
+      <ul>
+        <li><a href="mailto:jezhou@usc.edu">Email</a></li>
+        <li><a href="https://github.com/joycezhou66">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/joycezhou22/">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
